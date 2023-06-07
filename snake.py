@@ -4,6 +4,7 @@
 import turtle
 import time
 import random
+import msvcrt
 
 delay = 0.1
 
@@ -13,7 +14,7 @@ high_score = 0
 
 # Set up the screen
 wn = turtle.Screen()
-wn.title("Snake Game by @TokyoEdTech")
+wn.title("Snake Xenzia by BUNBAZZ")
 wn.bgcolor("green")
 wn.setup(width=600, height=600)
 wn.tracer(0) # Turns off the screen updates
@@ -82,11 +83,43 @@ def move():
         head.setx(x + 20)
 
 # Keyboard bindings
-wn.listen()
-wn.onkeypress(go_up, "w")
-wn.onkeypress(go_down, "s")
-wn.onkeypress(go_left, "a")
-wn.onkeypress(go_right, "d")
+
+
+
+# Function to get the next key press
+def get_key():
+    while True:
+        if msvcrt.kbhit():
+            key_code = ord(msvcrt.getch())
+            if key_code == 224:  # Arrow key
+                key_code = ord(msvcrt.getch())
+                if key_code == 72:  # Up arrow
+                    return 'up'
+                elif key_code == 80:  # Down arrow
+                    return 'down'
+                elif key_code == 75:  # Left arrow
+                    return 'left'
+                elif key_code == 77:  # Right arrow
+                    return 'right'
+            else:
+                return None
+
+# Game loop
+while True:
+    key = get_key()
+    if key == 'up':
+        # Move the snake up
+        pass
+    elif key == 'down':
+        # Move the snake down
+        pass
+    elif key == 'left':
+        # Move the snake left
+        pass
+    elif key == 'right':
+        # Move the snake right
+        pass
+
 
 # Main game loop
 while True:
